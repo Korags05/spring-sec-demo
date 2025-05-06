@@ -1,6 +1,7 @@
-package org.kunal.spring_sec_demo;
+package org.kunal.spring_sec_demo.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.kunal.spring_sec_demo.model.Student;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

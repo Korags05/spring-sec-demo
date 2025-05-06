@@ -1,4 +1,4 @@
-package org.kunal.spring_sec_demo;
+package org.kunal.spring_sec_demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

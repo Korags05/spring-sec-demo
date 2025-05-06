@@ -1,4 +1,4 @@
-package org.kunal.spring_sec_demo;
+package org.kunal.spring_sec_demo.controllers;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
