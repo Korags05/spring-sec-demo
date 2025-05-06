@@ -2,6 +2,7 @@ package org.kunal.spring_sec_demo.service;
 
 import org.kunal.spring_sec_demo.dao.UserRepo;
 import org.kunal.spring_sec_demo.model.User;
+import org.kunal.spring_sec_demo.model.UserPrinciple;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -20,10 +21,10 @@ public class MyUserDetailsService implements UserDetailsService {
         User user = userRepo.findByUsername(username);
 
         if (user == null) {
-            System.out.println("User 404");
-            throw new UsernameNotFoundException("User with username " + username + " not found");
+            System.out.println("User with username " + username + " not found");
+            throw new UsernameNotFoundException("User 404");
         }
 
-        return null;
+        return new UserPrinciple(user);
     }
 }
