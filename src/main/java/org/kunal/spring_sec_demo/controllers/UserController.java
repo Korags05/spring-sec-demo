@@ -1,6 +1,7 @@
 package org.kunal.spring_sec_demo.controllers;
 
 import org.kunal.spring_sec_demo.model.User;
+import org.kunal.spring_sec_demo.service.JwtService;
 import org.kunal.spring_sec_demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -15,6 +16,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private JwtService jwtService;
 
     @Autowired
     AuthenticationManager authenticationManager;
@@ -27,7 +30,7 @@ public class UserController {
     @PostMapping("login")
     public String login(@RequestBody User user) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-        if (authentication.isAuthenticated()) return "Success";
+        if (authentication.isAuthenticated()) return jwtService.generateToken(user.getUsername());
         else return "Login Failed!";
     }
 
