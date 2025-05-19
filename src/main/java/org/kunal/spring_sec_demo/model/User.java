@@ -12,4 +12,8 @@ public class User {
     private Long id;
     private String username;
     private String password;
+
+    // Add these fields for OAuth support
+    private String provider; // "local", "google", "github", etc.
+    private String providerId; // ID from OAuth provider
 }
